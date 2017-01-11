@@ -31,9 +31,17 @@ body{
 	width: 400px;
 }
 
+#info{
+	text-align: left;
+}
+
 .results{
 	border-style: solid;
 	border-color: white;
+}
+
+h2 {
+	color: ghostwhite;
 }
 
 /*Background image*/
@@ -91,3 +99,5 @@ body{
 	.tfclear{
 		clear:both;
 	}
+
+	/*Author: Alexander Vikenfalk*/
