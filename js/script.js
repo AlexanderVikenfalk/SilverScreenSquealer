@@ -96,7 +96,7 @@ $(document).ready(function () {
                                         });
 
                                         // Getting cast for recommendation
-                                        $.getJSON("http://api.themoviedb.org/3/movie/" + recommendationMovieId + "/casts?api_key=" + api_key + "", function (json) {
+                                        $.getJSON("https://api.themoviedb.org/3/movie/" + recommendationMovieId + "/casts?api_key=" + api_key + "", function (json) {
                                             if (json.cast[0] != null) {
                                                 $('#director').html('<h4 id="director" class="loading">' + json.crew[0].name + '</h4>');
                                             } else {
