@@ -1,8 +1,3 @@
-body{
-	/*background: url("bg.jpg");*/
-    /*background-color: grey;*/
-}
-
 .logo{
     height: 100%;
     width: 100%;
@@ -40,8 +35,16 @@ body{
 	border-color: white;
 }
 
+.loadingDiv{
+	background-color: red;
+}
+
 h2 {
 	color: ghostwhite;
+}
+
+#plot{
+	color:ghostwhite;
 }
 
 /*Background image*/
@@ -53,12 +56,12 @@ h2 {
 /*Search field*/
 #tfheader{
 		background-color:#c3dfef;
-	}
-	#tfnewsearch{
+}
+#tfnewsearch{
 		float:right;
 		padding:20px;
-	}
-	.tftextinput2{
+}
+.tftextinput2{
 		margin: 0;
 		padding: 5px 15px;
 		font-family: Arial, Helvetica, sans-serif;
@@ -67,8 +70,8 @@ h2 {
 		border:1px solid #0076a3; border-right:0px;
 		border-top-left-radius: 5px 5px;
 		border-bottom-left-radius: 5px 5px;
-	}
-	.tfbutton2 {
+}
+.tfbutton2 {
 		margin: 0;
 		padding: 5px 7px;
 		font-family: Arial, Helvetica, sans-serif;
@@ -85,19 +88,36 @@ h2 {
 		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
 		border-top-right-radius: 5px 5px;
 		border-bottom-right-radius: 5px 5px;
-	}
-	.tfbutton2:hover {
+}
+.tfbutton2:hover {
 		text-decoration: none;
 		background: #007ead;
 		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
 		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
-	}
+}
 	/* Fixes submit button height problem in Firefox */
 	.tfbutton2::-moz-focus-inner {
 	  border: 0;
-	}
+}
 	.tfclear{
 		clear:both;
-	}
+}
 
-	/*Author: Alexander Vikenfalk*/
+	/* Settings for loading icon */
+.modal {
+    	display:    none;
+    	position:   fixed;
+    	z-index:    1000;
+    	top:        0;
+    	left:       0;
+    	height:     100%;
+    	width:      100%;
+    	background: 
+                url('../img/spin_grey.svg') 
+                50% 50% 
+                no-repeat;
+}
+
+body.loadingSymbol .modal {	
+    display: block;
+}
