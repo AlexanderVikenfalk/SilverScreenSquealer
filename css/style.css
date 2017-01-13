@@ -1,123 +1,158 @@
-.logo{
+.logo {
     height: 100%;
     width: 100%;
-    background-color:black;
+    background-color: black;
 }
 
-.col-centered{
+.col-centered {
     float: none;
     margin: 0 auto;
 }
 
-.main{
-	height: 100%;
-    background-color:black;
-	opacity: 0.90;
+.main {
+    height: 100%;
+    background-color: black;
+    opacity: 0.90;
 }
+
+.test {
+    background-color: darkorange;
+}
+
+
+/*Footer*/
+
+footer {
+    color: white;
+    background-color: #0C110D;
+}
+
 
 /*Search*/
-#fetch{
-	text-align: center;
+
+#fetch {
+    text-align: center;
 }
+
 
 /*Results*/
-#Poster{
-	height: 600px;
-	width: 400px;
+
+#info {
+    text-align: left;
 }
 
-#info{
-	text-align: left;
+h4 {
+    color: ghostwhite;
 }
 
-.results{
-	border-style: solid;
-	border-color: white;
+#recommendation {
+    height: 10rem;
 }
 
-.loadingDiv{
-	background-color: red;
+#thePoster {
+    max-width: 100%;
+}
+
+.border {
+    /*border-bottom: 7px dotted #fff;
+	box-shadow: inset 0 -3px 0 0 #fff, 0 3px 0 0 #fff;*/
+    border-style: solid;
+    border-color: white;
+    height: 100%;
+}
+
+.loadingDiv {
+    background-color: red;
 }
 
 h2 {
-	color: ghostwhite;
+    color: ghostwhite;
 }
 
-#plot{
-	color:ghostwhite;
-}
 
 /*Background image*/
+
 .fill-screen {
     background-size: cover;
     background-position: center;
 }
 
+
 /*Search field*/
-#tfheader{
-		background-color:#c3dfef;
+
+#tfheader {
+    background-color: #c3dfef;
 }
-#tfnewsearch{
-		float:right;
-		padding:20px;
+
+#tfnewsearch {
+    float: right;
+    padding: 20px;
 }
-.tftextinput2{
-		margin: 0;
-		padding: 5px 15px;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:14px;
-		color:#666;
-		border:1px solid #0076a3; border-right:0px;
-		border-top-left-radius: 5px 5px;
-		border-bottom-left-radius: 5px 5px;
+
+.tftextinput2 {
+    margin: 0;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #666;
+    border: 1px solid #0076a3;
+    border-right: 0px;
+    border-top-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
 }
+
 .tfbutton2 {
-		margin: 0;
-		padding: 5px 7px;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:14px;
-		font-weight:bold;
-		outline: none;
-		cursor: pointer;
-		text-align: center;
-		text-decoration: none;
-		color: #ffffff;
-		border: solid 1px #0076a3; border-right:0px;
-		background: #0095cd;
-		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-		border-top-right-radius: 5px 5px;
-		border-bottom-right-radius: 5px 5px;
+    margin: 0;
+    padding: 5px 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #0076a3;
+    border-right: 0px;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top, #00adee, #0078a5);
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
 }
+
 .tfbutton2:hover {
-		text-decoration: none;
-		background: #007ead;
-		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
-		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
-}
-	/* Fixes submit button height problem in Firefox */
-	.tfbutton2::-moz-focus-inner {
-	  border: 0;
-}
-	.tfclear{
-		clear:both;
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top, #0095cc, #00678e);
 }
 
-	/* Settings for loading icon */
+
+/* Fixes submit button height problem in Firefox */
+
+.tfbutton2::-moz-focus-inner {
+    border: 0;
+}
+
+.tfclear {
+    clear: both;
+}
+
+
+/* Settings for loading icon */
+
 .modal {
-    	display:    none;
-    	position:   fixed;
-    	z-index:    1000;
-    	top:        0;
-    	left:       0;
-    	height:     100%;
-    	width:      100%;
-    	background: 
-                url('../img/spin_grey.svg') 
-                50% 50% 
-                no-repeat;
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../img/spin_grey.svg') 50% 50% no-repeat;
 }
 
-body.loadingSymbol .modal {	
+body.loadingSymbol .modal {
     display: block;
 }
