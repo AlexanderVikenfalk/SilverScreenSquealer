@@ -93,7 +93,7 @@ $(document).ready(function() {
                                     console.log("Couldn't find recommendation");
                                     //Poster for recommendation not found
                                     $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=themask", function(json) {
-                                        console.log("Line 95");
+                                        console.log("Line 96");
                                         // clearAll();
                                         $('#recommendation').html('<h2 class="loading">Sorry, but we couldnt find any recommendation for ' + searchedTitle + '</h2>');
                                         $("#thePoster").attr("src", "img/placeholder.png");
