@@ -105,7 +105,7 @@ $(document).ready(function() {
                 } else {
                     // $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=goonies", function(json) {
                     console.log("Line 105");
-                    $('#message').html('<h2>Sorry, but we couldnt find ' + film + ' but maybe a picture of a man holding a cat will do instead?</h2>');
+                    $('#message').html('<h2>Sorry, we couldnt find ' + film + ' but maybe a picture of a man holding a cat will do instead?</h2>');
                     $("#thePoster").attr("src", './img/notFound.jpeg');
                     // $("#thePoster").attr("src", "" + poster_base_url + imagesize + json.results[0].poster_path + "");
 
@@ -151,20 +151,20 @@ $(document).ready(function() {
                 $.getJSON("https://api.themoviedb.org/3/movie/" + recommendationMovieId + "?api_key=" + api_key + "", function(json) {
 
                     // Inserting Plot                   
-                    $('#plot').html('<div class="col-sm-2"><h4>Overview</h4></div><div class="col-sm-10"><h4 id="resultPlot">' + json.overview + '</h4></div>');
+                    $('#plot').html('<div class="col-xs-2"><h4>Overview</h4></div><div class="col-xs-10"><h4 id="resultPlot">' + json.overview + '</h4></div>');
 
                     // Cropping the release date to only show the year.
                     var releaseYear = json.release_date.substring(0, 4);
 
                     // Inserting releaseYear and adding a <br> for the next result to not end up on the wrong line
-                    $('#releaseYear').html('<div class="col-sm-2"><h4>Release Year</h4></div><div class="col-sm-10"><h4 id="resultYear">' + releaseYear + '</h4><br></div>');
+                    $('#releaseYear').html('<div class="col-xs-2"><h4>Release Year</h4></div><div class="col-xs-10"><h4 id="resultYear">' + releaseYear + '</h4><br></div>');
 
                     // Converting runtime from minutes to hours and minutes.
                     var hours = Math.floor(json.runtime / 60);
                     var minutes = json.runtime % 60;
 
                     // Inserting converted runtime
-                    $('#runtime').html('<div class="col-sm-2"><h4>Runtime</h4></div><div class="col-sm-10"><h4 id="resultRuntime">' + hours + " h " + minutes + ' m</h4></div>');
+                    $('#runtime').html('<div class="col-xs-2"><h4>Runtime</h4></div><div class="col-xs-10"><h4 id="resultRuntime">' + hours + " h " + minutes + ' m</h4></div>');
 
                     // Itterating over all genre in the object and saving them in one string 
                     var genres
@@ -173,15 +173,15 @@ $(document).ready(function() {
                     });
                     // The first genre was always "undefined" so i cropped that out. A sloppy hack - sorry.
                     var genresCropped = genres.substring(9);
-                    $('#genre').html('<div class="col-sm-2"><h4>Genre</h4></div><div class="col-sm-10"><h4 id="resultGenre">' + genresCropped + '</h4></div>');
+                    $('#genre').html('<div class="col-xs-2"><h4>Genre</h4></div><div class="col-xs-10"><h4 id="resultGenre">' + genresCropped + '</h4></div>');
                 });
 
                 // Getting cast for recommendation
                 $.getJSON("https://api.themoviedb.org/3/movie/" + recommendationMovieId + "/casts?api_key=" + api_key + "", function(json) {
                     if (json.cast[0] != null) {
-                        $('#director').html('<div class="col-sm-2"><h4>Director </h4></div><div class="col-sm-10"><h4 id ="resultDirector">' + json.crew[0].name + '</h4></div>');
+                        $('#director').html('<div class="col-xs-2"><h4>Director </h4></div><div class="col-xs-10"><h4 id ="resultDirector">' + json.crew[0].name + '</h4></div>');
                     } else {
-                        $('#director').html('<div class="col-sm-2"><h4>Director </h4></div><div class="col-sm-10"><h4 id ="resultDirector">no direcctor found for ' + recommendation + '</h4></div>');
+                        $('#director').html('<div class="col-xs-2"><h4>Director </h4></div><div class="col-xs-10"><h4 id ="resultDirector">no direcctor found for ' + recommendation + '</h4></div>');
                     }
                 });
             } else {

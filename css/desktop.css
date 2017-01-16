@@ -1,0 +1,201 @@
+body {
+    background-color: #0E130F;
+}
+
+
+/*Logo*/
+
+#logo img {
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    /*padding: 0% 1rem auto;*/
+}
+
+#logo {
+    padding: 0% 2%;
+    text-align: center;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.main {
+    height: 100%;
+    opacity: 0.90;
+}
+
+
+/*center background*/
+
+.background {
+    background-image: url(../img/dark_leather.png);
+    -webkit-box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.75);
+}
+
+.carousel-inner>.item>a>img,
+.carousel-inner>.item>img,
+.img-responsive,
+.thumbnail a>img,
+.thumbnail>img {
+    max-width: 95%;
+}
+
+.container-fluid {
+    margin: 0;
+}
+
+
+/*Message*/
+
+#message {
+    height: 8rem;
+}
+
+.searchBox {
+    padding-left: 3rem;
+}
+
+
+/*Search*/
+
+#fetch {
+    text-align: center;
+}
+
+.box {
+    /*margin: 100px auto;*/
+    margin: 10px auto;
+    width: 300px;
+    /*height: 200px;*/
+    height: 20px;
+}
+
+.container-1 input.searchField {
+    width: 300px;
+    height: 50px;
+    background: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #262626;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
+}
+
+.container-1 {
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+
+.container-1 input.searchField::-webkit-input-placeholder {
+    /*color: #65737e;*/
+    color: ghostwhite;
+}
+
+.container-1 input.searchField:-moz-placeholder {
+    /* Firefox 18- */
+    color: #65737e;
+}
+
+.container-1 input.searchField::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #65737e;
+}
+
+.container-1 input.searchField:-ms-input-placeholder {
+    color: #65737e;
+}
+
+.container-1 .icon {
+    position: absolute;
+    top: 50%;
+    margin-left: 17px;
+    margin-top: 17px;
+    z-index: 1;
+    color: #65737e;
+}
+
+.container-1 .searchField:hover,
+.container-1 .searchField:focus,
+.container-1 .searchField:active {
+    outline: none;
+    background: #ffffff;
+    color: #65737e;
+}
+
+
+/*Results*/
+
+#info {
+    text-align: left;
+}
+
+h4 {
+    color: ghostwhite;
+}
+
+h2 {
+    margin: 1rem 0 0 0;
+    color: ghostwhite;
+}
+
+#thePoster {
+    width: 80%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.border {
+    /*border-bottom: 7px dotted #fff;
+	box-shadow: inset 0 -3px 0 0 #fff, 0 3px 0 0 #fff;*/
+    border-style: solid;
+    border-color: #65737e;
+    border-radius: 25px;
+}
+
+
+/*Footer*/
+
+footer {
+    color: ghostwhite;
+}
+
+
+/*Background image*/
+
+.fill-screen {
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Settings for loading icon */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../img/spin_grey.svg') 50% 50% no-repeat;
+}
+
+body.loadingSymbol .modal {
+    display: block;
+}
