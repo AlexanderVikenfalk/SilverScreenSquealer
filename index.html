@@ -2,100 +2,123 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
-    <!-- Set the viewport so this responsive site displays correctly on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Movie recommendation generator">
+    <meta name="author" content="Alexander Vikenfalk">
+
     <title>Silver Screen</title>
-    <!-- Include bootstrap css -->
-    <link rel="stylesheet" href="css\bootstrap.min.css">
-    <!--<link rel="stylesheet" media='screen and (max-width: 500px)' href="resources\css\defaultmobile.css">
-    <link rel="stylesheet" media="screen and (min-width: 501px) and (max-device-width: 1023px)" href="resources\css\tablet.css" />-->
-    <link rel="stylesheet" href="css\desktop.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Padauk" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="fill-screen" style="background-image: url(img/bg.jpg)">
-                <header class="container-fluid">
-                    <div class="row col-xs-10 col-xs-offset-1 background">
-                        <div class="col-xs-12 col-centered">
-                            <!--Logo-->
-                            <img src=".\img\logo_long.jpg" id="logo" class="img-responsive center hidden-xs">
-                            <!--<picture id="logo">-->
-                            <!--<source srcset='.\img\logo_phone.png' media="(max-width: 768px)">-->
-                            <!--<source srcset='.\img\logo_long.jpg' media="(min-width:769px)">
-                                <img alt="My default image" class="img-responsive center">
-                            </picture>-->
-                        </div>
-                        <!--Search-->
-                        <div class="col-xs-12 searchBox ">
-
-                            <div id "fetch" class="container-1">
-                                <span role="button" id="search" class="icon glyphicon glyphicon-search"></span>
-                                <input type="text" id="term" class="searchField" placeholder="Enter a movie title to start" maxlength="40" />
-                            </div>
-                        </div>
-                    </div>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <header>
+                    <img src=".\img\logo_long.jpg" id="logo" class="img-responsive hidden-xs col-centered">
                 </header>
 
-                <main class="container-fluid">
-                    <section class="col-xs-10 col-xs-offset-1 main background">
-                        <div class="col-xs-4 col-centered">
-                        </div>
-                        <!--Search results end up here-->
-                        <section class="col-xs-12 results">
-                            <div class="border col-xs-12 ">
-                                <section id="message" class="clean col-xs-12">
+                <!-- Navbar -->
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container">
 
-                                </section>
-                                <!--<section id="poster" class="col-xs-6 clean">
-                                </section>-->
-                                <section class="poster col-xs-4 cleanPoster">
-                                    <img id="thePoster" class="img-responsive" src="img\placeholder.png" />
-                                </section>
-                                <section id="recommendationInfo " class="col-xs-8 ">
+                        <div class="navbar-header">
+
+                            <p class="navbar-text visible-xs-inline-block logoText"><b>| Silver Screen |</b></p>
+
+                            <button type="button" class="navbar-toggle my-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            </button>
+
+                        </div>
+                        <!-- Search field -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <div class="input-group searchBox">
+                                <div id "fetch" class="container-1">
+                                    <span role="button" id="search" class="icon glyphicon glyphicon-search"></span>
+                                    <input type="text" id="term" class="searchField" placeholder="Enter a movie title to start" maxlength="40" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container -->
+                </nav>
+            </div>
+
+        </div>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="box">
+
+                        <div class="border container-fluid no-padding">
+                            <!--Messages from system-->
+                            <section id="message" class="col-xs-12 clean">
+                            </section>
+                            <!--Results-->
+                            <section class="resultSection">
+                                <div class="poster cleanPoster col-xs-12 col-sm-4">
+                                    <img id="thePoster" class="img-responsive col-centered" src="img\placeholder.png" />
+                                </div>
+
+                                <div class="col-xs-12 col-sm-8 resultText">
                                     <div id="director" class="clean">
                                     </div>
                                     <div id="plot" class="clean">
-                                    </div>
-                                    <div id="releaseYear" class="clean">
                                     </div>
                                     <div id="runtime" class="clean">
                                     </div>
                                     <div id="genre" class="clean">
                                     </div>
-                                </section>
-                            </div>
+                                    <div id="releaseYear" class="clean">
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
 
-
-                            <!--<section id="posterRecommendation ">
-            </section>-->
-                        </section>
-
-                    </section>
-
-                </main>
-                <footer class="container-fluid">
-                    <div class="row col-xs-10 col-xs-offset-1 background">
-                        <h1>FOOTER</h1>
                     </div>
-                </footer>
-                <div class="modal ">
-                    <!-- Place at bottom of page -->
+
+                </div>
+        </main>
+        <!--footer-->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center white-text">
+                        <p><i><a href="https://github.com/AlexanderVikenfalk/"> Alexander Vikenfalk 2017</a></i></p>
+                    </div>
                 </div>
             </div>
+        </footer>
+
+        <div class="modal ">
         </div>
-    </div>
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <script src="js/script.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
 
 
-    <!-- Include jQuery and bootstrap JS plugins -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js " integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa " crossorigin="anonymous "></script>
-    <script src="js/script.js "></script>
-
-
+        </div>
 </body>
 
 </html>
-<!--Coded by Alexander Vikenfalk-->

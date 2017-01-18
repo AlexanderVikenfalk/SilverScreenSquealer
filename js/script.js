@@ -1,5 +1,3 @@
-// Todo: 
-
 $main = $("body");
 
 $(document).on({
@@ -53,10 +51,10 @@ $(document).ready(function() {
         clearAll();
 
         if (film == '') {
-            $('#message').html("<h2 class='loading'>It seems like you forgot to type something. </h2>");
+            $('#message').html("It seems like you forgot to type something. ");
             $("#thePoster").attr("src", "img/placeholder.png");
         } else {
-            $('#message').html("<h2 class='loading'>We're Looking for your poster!</h2>");
+            $('#message').html("We're Looking for your recommendation!");
             // Sending a get request with the given movie to the API 
             console.log("");
 
@@ -83,19 +81,18 @@ $(document).ready(function() {
                                 if (response.Similar.Results[0] != null) {
                                     recommendation = response.Similar.Results[0].Name;
 
-                                    $('#message').html('<div id="title"><h2>If you liked ' + searchedTitle + ' then you\'ll might also enjoy ' + recommendation + '</h2></div>');
+                                    $('#message').html('If you liked <b>' + searchedTitle + '</b> then you might also enjoy <b>' + recommendation + '</b>');
                                     console.log(ajaxCall);
                                     makeAJAXcall();
 
                                 } else {
                                     console.log("Couldn't find recommendation");
                                     //Poster for recommendation not found
-                                    $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=themask", function(json) {
-                                        console.log("Line 96");
-                                        // clearAll();
-                                        $('#message').html('<h2 class="loading">Sorry, but we couldnt find any recommendation for ' + searchedTitle + '</h2>');
-                                        $("#thePoster").attr("src", "img/placeholder.png");
-                                    });
+
+                                    // clearAll();
+                                    $('#message').html('Sorry, but we couldnt find any recommendation for ' + searchedTitle + '');
+                                    $("#thePoster").attr("src", "img/placeholder.png");
+
                                 }
                             } // Stop
                     });
@@ -105,7 +102,7 @@ $(document).ready(function() {
                 } else {
                     // $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=goonies", function(json) {
                     console.log("Line 105");
-                    $('#message').html('<h2>Sorry, we couldnt find ' + film + ' but maybe a picture of a man holding a cat will do instead?</h2>');
+                    $('#message').html('Sorry, we couldn\'t find ' + film + ' but maybe a picture of a man holding a cat will do instead?');
                     $("#thePoster").attr("src", './img/notFound.jpeg');
                     // $("#thePoster").attr("src", "" + poster_base_url + imagesize + json.results[0].poster_path + "");
 
@@ -145,26 +142,26 @@ $(document).ready(function() {
                     // $('.poster').html('<h3 class="loading"><img id="thePoster" class="img-responsive" src=' + poster_base_url + imagesize + json.results[0].poster_path + ' /></h3>');
 
                 } else {
-                    $('#message').html('<h2 class="loading">Sorry, no poster found poster for ' + recommendation + '</h2>');
+                    $('#message').html('Sorry, no poster found poster for ' + recommendation + '');
                 }
                 // Getting info for recommendation
                 $.getJSON("https://api.themoviedb.org/3/movie/" + recommendationMovieId + "?api_key=" + api_key + "", function(json) {
 
                     // Inserting Plot                   
-                    $('#plot').html('<div class="col-xs-2"><h4>Overview</h4></div><div class="col-xs-10"><h4 id="resultPlot">' + json.overview + '</h4></div>');
+                    $('#plot').html('<div class="col-xs-4 col-sm-3"><b>Overview</b></div><div class="col-xs-8 col-sm-9">' + json.overview + '</div>');
 
                     // Cropping the release date to only show the year.
                     var releaseYear = json.release_date.substring(0, 4);
 
                     // Inserting releaseYear and adding a <br> for the next result to not end up on the wrong line
-                    $('#releaseYear').html('<div class="col-xs-2"><h4>Release Year</h4></div><div class="col-xs-10"><h4 id="resultYear">' + releaseYear + '</h4><br></div>');
+                    $('#releaseYear').html('<div class="col-xs-4 col-sm-3"><b>Release Year</b></div><div class="col-xs-8 col-sm-9">' + releaseYear + '</div>');
 
                     // Converting runtime from minutes to hours and minutes.
                     var hours = Math.floor(json.runtime / 60);
                     var minutes = json.runtime % 60;
 
                     // Inserting converted runtime
-                    $('#runtime').html('<div class="col-xs-2"><h4>Runtime</h4></div><div class="col-xs-10"><h4 id="resultRuntime">' + hours + " h " + minutes + ' m</h4></div>');
+                    $('#runtime').html('<div class="col-xs-4 col-sm-3"><b>Runtime</b></div><div class="col-xs-8 col-sm-9">' + hours + " h " + minutes + ' m</div>');
 
                     // Itterating over all genre in the object and saving them in one string 
                     var genres
@@ -173,21 +170,25 @@ $(document).ready(function() {
                     });
                     // The first genre was always "undefined" so i cropped that out. A sloppy hack - sorry.
                     var genresCropped = genres.substring(9);
-                    $('#genre').html('<div class="col-xs-2"><h4>Genre</h4></div><div class="col-xs-10"><h4 id="resultGenre">' + genresCropped + '</h4></div>');
+                    // Removing last comma in string
+                    var genresCropped = genresCropped.slice(0, -2);
+
+                    $('#genre').html('<div class="col-xs-4 col-sm-3"><b>Genre</b></div><div class="col-xs-8 col-sm-9">' + genresCropped + '');
                 });
+
 
                 // Getting cast for recommendation
                 $.getJSON("https://api.themoviedb.org/3/movie/" + recommendationMovieId + "/casts?api_key=" + api_key + "", function(json) {
                     if (json.cast[0] != null) {
-                        $('#director').html('<div class="col-xs-2"><h4>Director </h4></div><div class="col-xs-10"><h4 id ="resultDirector">' + json.crew[0].name + '</h4></div>');
+                        $('#director').html('<div class="col-xs-4 col-sm-3"><b> Director </b> </div><div class="col-xs-8 col-sm-9">' + json.crew[0].name + '</b> </div>');
                     } else {
-                        $('#director').html('<div class="col-xs-2"><h4>Director </h4></div><div class="col-xs-10"><h4 id ="resultDirector">no direcctor found for ' + recommendation + '</h4></div>');
+                        $('#director').html('<div class="col-xs-4 col-sm-3"><b> Director </b></div><div class="col-xs-8 col-sm-9">no direcctor found for ' + recommendation + '</div>');
                     }
                 });
             } else {
                 //Poster for recommendation not found
                 console.log("Line 85");
-                $('#message').html('<h2 class="loading">Sorry, but we couldn\'t find' + recommendation + ' </h2>');
+                $('#message').html('Sorry, but we couldn\'t find' + recommendation + ' ');
             }
         });
     }
