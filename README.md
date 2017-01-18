@@ -9,7 +9,7 @@
 This project was made as the final project for a course with focus on integrating the use of web APIs into your own design. 
 I decided to create a website that recommended a movie based on user input.
 
-####*API's used
+*API's used
 ⋅⋅* [**Taste Kid**](https://www.tastekid.com/read/api) for movie recommendations. 
 ⋅⋅* [**The Movie Database**](https://developers.themoviedb.org/3/getting-started) for retrieving movie info and corresponding poster. 
 
