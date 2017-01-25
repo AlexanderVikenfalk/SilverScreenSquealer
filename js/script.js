@@ -35,19 +35,10 @@ $(document).ready(function() {
         $('.clean').empty();
     }
 
-    // var clearPoster = function() {
-    //     var full = $(".cleanPoster");
-    //     $('.cleanPoster').empty();
-    //     $('.poster').html('<img id="thePoster" class="img-responsive clean" src="img/placeholder.png" />');
-
-    // }
-
     //Main method for getting poster
     var getPoster = function() {
         var film = $('#term').val();
 
-
-        // $( "#info" ).empty();
         clearAll();
 
         if (film == '') {
@@ -78,33 +69,33 @@ $(document).ready(function() {
 
                         // Inserting recommendation into text
                         success: function(response) {
-                                if (response.Similar.Results[0] != null) {
-                                    recommendation = response.Similar.Results[0].Name;
+                            if (response.Similar.Results[0] != null) {
+                                recommendation = response.Similar.Results[0].Name;
 
-                                    $('#message').html('If you liked <b>' + searchedTitle + '</b> then you might also enjoy <b>' + recommendation + '</b>');
-                                    console.log(ajaxCall);
-                                    makeAJAXcall();
+                                $('#message').html('If you liked <b>' + searchedTitle + '</b> then you might also enjoy <b>' + recommendation + '</b>');
+                                console.log(ajaxCall);
+                                makeAJAXcall();
 
-                                } else {
-                                    console.log("Couldn't find recommendation");
-                                    //Poster for recommendation not found
+                            } else {
+                                console.log("Couldn't find recommendation");
+                                //Poster for recommendation not found
 
-                                    // clearAll();
-                                    $('#message').html('Sorry, but we couldnt find any recommendation for ' + searchedTitle + '');
-                                    $("#thePoster").attr("src", "img/placeholder.png");
 
-                                }
-                            } // Stop
+                                $('#message').html('Sorry, but we couldnt find any recommendation for ' + searchedTitle + '');
+                                $("#thePoster").attr("src", "img/placeholder.png");
+
+                            }
+                        }
                     });
 
 
                     // Couldn't find recommendation at all    
                 } else {
-                    // $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=goonies", function(json) {
-                    console.log("Line 105");
+
+
                     $('#message').html('Sorry, we couldn\'t find ' + film + ' but maybe a picture of a man holding a cat will do instead?');
                     $("#thePoster").attr("src", './img/notFound.jpeg');
-                    // $("#thePoster").attr("src", "" + poster_base_url + imagesize + json.results[0].poster_path + "");
+
 
 
                     // });
@@ -123,23 +114,22 @@ $(document).ready(function() {
             getPoster();
         }
     });
-    // ajaxCall2 = $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + recommendation);
+
     // Getting poster and movie id for recommendation
     var makeAJAXcall = function() {
         $.when($.getJSON(ajaxCall), $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + recommendation)).done(function(result1, result2) {
 
             if (result2 != null) {
 
-                // console.log(result2[0].object.results[0].object.id);
+
                 recommendationMovieId = result2[0].results[0].id;
 
                 recommendationPosterPath = result2[0].results[0].poster_path;
-                // console.log("Reco poster path" + recommendationPosterPath);
-                // console.log(json.results[0].original_title)
+
                 if (result2[0].results[0].poster_path != null) {
-                    // $("#thePoster").attr('src','img url');
+
                     $("#thePoster").attr("src", "" + poster_base_url + imagesize + recommendationPosterPath + "");
-                    // $('.poster').html('<h3 class="loading"><img id="thePoster" class="img-responsive" src=' + poster_base_url + imagesize + json.results[0].poster_path + ' /></h3>');
+
 
                 } else {
                     $('#message').html('Sorry, no poster found poster for ' + recommendation + '');
